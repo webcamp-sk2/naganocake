@@ -1,0 +1,22 @@
+<div class="row">
+  <h2>会員一覧</h2>
+</div>
+
+<table class = "list">
+  <thead>
+    <tr>会員ID</tr>
+    <tr>氏名</tr>
+    <tr>メールアドレス</tr>
+    <tr>ステータス</tr>
+  </thead>
+  <ybody>
+    <% @costomers.each do |costomer| %>
+    <td><%= costomer.id %></td>
+    <td><%= costomer.name %></td>
+    <td><%= costomer.email %></td>
+    
+  </ybody>
+  
+  
+  
+</table>
