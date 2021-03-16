@@ -62,6 +62,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
+#ページング機能
+gem 'kaminari','~> 1.2.1'
+
+
 
 #デザイン編集
 gem 'bootstrap', '~> 4.5'

@@ -1,7 +1,11 @@
 class Admin::CustomersController < ApplicationController
 
-　def index
-　end
+  before_action :authenticate_admin!
+
+  #会員一覧
+  def index
+    @customers = Customer.page(params[:page]).per(10)
+  end
 
 　def show
 　end
