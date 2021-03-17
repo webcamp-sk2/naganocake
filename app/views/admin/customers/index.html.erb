@@ -1,26 +1,28 @@
+<div class="container takasa tect-center">
+   <div class="row">
 
-<div class="row">
-  <h2>会員一覧</h2>
-</div>
+   <h2>会員一覧</h2>
+ </div>
 
-<div class="col-xs-10 member-index">
- <table class = "list">
-  <thead>
-    <tr>会員ID</tr>
-    <tr>氏名</tr>
-    <tr>メールアドレス</tr>
-    <tr>ステータス</tr>
-  </thead>
-  <tbody>
-    <% @costomers.each do |costomer| %>
-   <tr>
-     <td><%= costomer.id %></td>
-     <td><%= costomer.name %></td>
-     <td><%= costomer.email %></td>
-     <td><%= costomer.status %></td>
-   </tr>
-   <% end %>
-  </tbody>
- </table>
-  <%= paginate @costomers %>
+ <div class="col-xs-10 member-index">
+  <table class = "list">
+   <thead>
+     <tr>会員ID</tr>
+     <tr>氏名</tr>
+     <tr>メールアドレス</tr>
+     <tr>ステータス</tr>
+   </thead>
+   <tbody>
+     <% @costomers.each do |costomer| %>
+    <tr>
+      <td><%= costomer.id %></td>
+      <td><%= costomer.name %></td>
+      <td><%= costomer.email %></td>
+      <td><%= costomer.status %></td>
+    </tr>
+    <% end %>
+   </tbody>
+  </table>
+   <%= paginate @costomers %>
+ </div>
 </div>
