@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     
     #注文
     resources :orders
+    get "complete/orders" => "complete#orders", as: :complete
+    post "comfirm/orders" => "comfirm#orders", as: :comfirm
     
     #会員登録
     resources :registrations
