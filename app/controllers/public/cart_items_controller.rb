@@ -1,6 +1,8 @@
 class Public::CartItemsController < ApplicationController
   
+  before_action :authenticate_current_user!
   def index
+    
   end
   
   def create
