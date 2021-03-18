@@ -1,12 +1,32 @@
-<div class="container ">
-  <div class="row center-block">
-    <div class="col-md-7 ">
-      <p class="text-center">
-        ようこそ、ながのCAKEへ！
+<div class="container center-block "style="margin-top: 100px;">
+  <div class="row">
+    <div class="offset-md-4 col-md-7">
+      <p class="text-left">
+        ようこそ、ながのCAKEへ！<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない⽅も商品の閲覧はできますが、<br>
         購⼊には会員登録が必要になります。<br>
       </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <!--新着商品一覧-->
+      <h2>新着商品</h2>
+      <table>
+        <tbody>
+          <tr>
+            <% @items.each do |item| %>
+            <td>
+              <%= attachment_image_tag item, :image %><br>
+              <%= item.name %><br>
+              <%= item.price %>
+            </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-left"><%= link_to "全ての商品を見る",public_items_path %></p>
     </div>
   </div>
 </div>

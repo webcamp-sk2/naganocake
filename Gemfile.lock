@@ -346,7 +346,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
-  font-awesome-sass
+  font-awesome-sass (~> 5.13)
   jbuilder (~> 2.5)
   jp_prefecture
   jquery-rails
