@@ -2,7 +2,8 @@ class Public::CartItemsController < ApplicationController
   before_action :authenticate_current_user!
   
   def index
-    @cart_items = Cart_item.all
+    @customer = Customer.find(current_customer.id)
+    @cart_items = @customer.cart_items
   end
   
   def create
