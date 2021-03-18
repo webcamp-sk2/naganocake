@@ -15,7 +15,7 @@ class Admin::CustomersController < ApplicationController
 　  @customer = Customer.find(params[:id])
 　end
 
-　def delete
+　def destroy
 　  @customer = Customer.find(params[:id])
 　  @customer.destroy
 　end
