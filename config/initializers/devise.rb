@@ -308,4 +308,6 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+  config.scoped_views = true  # ←複数のmodelで個別のログイン画面を使う
+  config.sign_out_all_scopes = false  #複数のモデルを扱う際、いずれかがログアウトした時に全てログアウトする。 これをfalseにします。
 end
