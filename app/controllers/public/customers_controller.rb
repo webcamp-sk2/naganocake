@@ -1,11 +1,10 @@
 class Public::CustomersController < ApplicationController
 #会員ログインの制限
-before_action :authenticate_customer!
+before_action :authenticate_public!
 
 
 #顧客のマイページ
   def show
-    @customer = Customer.find(params[:id])
   end
 
 #顧客の登録情報編集画面

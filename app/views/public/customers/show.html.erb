@@ -2,47 +2,49 @@
   <div class='row'>
     <div class='col-md-5'>
 
+
       <p><mark class="bg-light font-weight-bold">マイページ</mark></p>
       <div class="font-weight-bold">
         登録情報
       </div>
       <%= link_to '編集する', edit_customers_path(@customer), class: "btn btn-sm btn-success" %>
 
+
         <table class='table table-bordered'>
           <tr>
             <th class="bg-light">氏名</th>
-            <th><%= @customer.last_name %>　<%= @customer.first_name %></th>
+            <th><%= current_public.last_name %>　<%= current_public.first_name %></th>
             </tr>
             <tr>
               <th class="bg-light">カナ</th>
-              <th><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></th>
+              <th><%= current_public.last_name_kana %>　<%= current_public.first_name_kana %></th>
             </tr>
             <tr>
               <th class="bg-light">郵便番号</th>
-              <th><%= @customer.postal_code %></th>
+              <th><%= current_public.postal_code %></th>
             </tr>
             <tr>
               <th class="bg-light">住所</th>
-              <th><%= @customer.address %></th>
+              <th><%= current_public.address %></th>
             </tr>
             <tr>
               <th class="bg-light">電話番号</th>
-              <th><%= @customer.telephone_number %></th>
+              <th><%= current_public.telephone_number %></th>
             </tr>
             <tr>
               <th class="bg-light">メールアドレス</th>
-              <th><%= @customer.encrypted_password %></th>
+              <th><%= current_public.email %></th>
             </tr>
           </table>
 
         <div class="font-weight-bold">
           配送先
         </div>
-        <%= link_to '一覧を見る', public_addresses_path(@customer), class: "btn btn-sm btn-primary" %>
+        <%= link_to '一覧を見る', public_addresses_path(current_public), class: "btn btn-sm btn-primary" %>
         <div class="font-weight-bold">
           注文履歴
         </div>
-        <%= link_to '一覧を見る', public_orders_path(@customer), class: "btn btn-sm btn-primary" %>
+        <%= link_to '一覧を見る', public_orders_path(current_public), class: "btn btn-sm btn-primary" %>
 
     </div>
   </div>
