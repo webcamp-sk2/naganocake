@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   #devise
   devise_for :publics
-  
-  
+
+
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     #顧客
     resource :customer, only: [:show, :edit, :update]
     get "customers/unsubscribe" => "customers#unsubscribe", as: :unsubscribe
-    patch "customers/withdraw" => "customers#withdraw", as: :withdraw
+    delete "customers/withdraw" => "customers#withdraw", as: :withdraw
 
     #商品
     resources :items, only: [:index, :show]
@@ -33,20 +33,20 @@ Rails.application.routes.draw do
     get "complete/orders" => "complete#orders", as: :complete
     post "comfirm/orders" => "comfirm#orders", as: :comfirm
   end
-  
+
   namespace :admin do
     #顧客情報
     resources :customers, only: [:index, :show, :edit, :destroy]
-    
+
     #ジャンル
     resources :genres, only: [:index, :create, :edit, :update]
-    
+
     #商品
     resources :items
-    
+
     #注文詳細
     resources :order_details, only: [:update]
-    
+
     #注文
     resources :orders, only: [:index, :show, :update]
   end
