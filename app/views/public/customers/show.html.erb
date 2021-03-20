@@ -1,13 +1,13 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-5'>
-      
-      <p class="bg-light font-weight-bold">マイページ</p>
+
+      <p><mark class="bg-light font-weight-bold">マイページ</mark></p>
       <div class="font-weight-bold">
         登録情報
       </div>
       <%= link_to '編集する', edit_customers_path(@customer), class: "btn btn-sm btn-success" %>
-        
+
         <table class='table table-bordered'>
           <tr>
             <th class="bg-light">氏名</th>
@@ -34,7 +34,7 @@
               <th><%= @customer.encrypted_password %></th>
             </tr>
           </table>
-          
+
         <div class="font-weight-bold">
           配送先
         </div>
