@@ -2,6 +2,7 @@ class Admin::GenresController < ApplicationController
 
   before_action :authenticate_admin!
 
+
   def index
     @genres = Genre.all
     @genres = Genre.page(params[:page]).per(4)
@@ -29,4 +30,5 @@ class Admin::GenresController < ApplicationController
   def genre_params
     params.require(:genre).permit(:name)
   end
+
 end

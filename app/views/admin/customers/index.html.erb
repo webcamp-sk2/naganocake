@@ -1,6 +1,6 @@
-<div class="container takasa tect-center">
+<div class="container">
    <div class="row">
-
+  <div class='col-10 offset-1'>
    <h2>会員一覧</h2>
  </div>
 
@@ -13,16 +13,17 @@
      <tr>ステータス</tr>
    </thead>
    <tbody>
-     <% @costomers.each do |costomer| %>
+     <% @publics.each do |public| %>
     <tr>
-      <td><%= costomer.id %></td>
-      <td><%= costomer.name %></td>
-      <td><%= costomer.email %></td>
-      <td><%= costomer.status %></td>
+      <td><%= public.id %></td>
+      <td><%= public.first_name %></td>
+      <td><%= public.email %></td>
+      <td><%= public.is_deleted %></td>
     </tr>
     <% end %>
    </tbody>
   </table>
-   <%= paginate @costomers %>
+   <%= paginate @publics %>
+ </div>
  </div>
 </div>
