@@ -8,14 +8,14 @@
       　  <%=link_to public_item_path(item.id )do %><%#商品画像をクリックしたら詳細ページへ移動%>
       　    <% attachment_image_tag item, :image, fallback:"no_image.jpg", size:"150x150" %><%#商品画像%>
       　 <% end %>
-      　   <p><%= item.name</p>
+      　   <p><%= item.name %></p>
       　   #↓税込価格表示記載?
       　   <p><%=item.price(unit => "¥") %>
          <% end %>
       　</div>
       　<div class = "col-md-３">
       　  <%#ページ機能%>
-      　 <%= paginate @items %> 
+      　 <%= paginate @items %>
         </div>
     </div>
   </div>

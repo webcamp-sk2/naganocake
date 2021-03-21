@@ -4,7 +4,7 @@ class Public::ItemsController < ApplicationController
    #販売ステータスにて（販売中）のもののみ表示
    @items = Item.where(is_active: 0).page(params[:page]).per(8)
    #商品の個数カウント
-   @quantity = Item.count　
+   @quantity = Item.count
   end
   
   def show
