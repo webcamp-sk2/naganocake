@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   devise_for :admins, controllers: {
-    sessions: 'admins/sessions'
+    sessions: 'admins/devise_admins/sessions'
   }
 
   namespace :public do
