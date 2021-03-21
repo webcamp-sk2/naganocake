@@ -4,23 +4,23 @@ class Admin::CustomersController < ApplicationController
 
   #会員一覧
   def index
-    @customers = Customer.page(params[:page]).per(10)
+    @publics = Public.page(params[:page]).per(10)
   end
 
-　def show
-　  @customer = Customer.find(params[:id])
-　end
+def show
+  @customer = Customer.find(params[:id])
+end
 
-　def edit
-　  @customer = Customer.find(params[:id])
-　end
+def edit
+  @customer = Customer.find(params[:id])
+end
 
-　def destroy
-　  @customer = Customer.find(params[:id])
-　  @customer.destroy
-　end
+def destroy
+  @customer = Customer.find(params[:id])
+  @customer.destroy
+end
 
-　def update
-　end
+def update
+end
 
 end

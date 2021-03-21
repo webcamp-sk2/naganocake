@@ -2,8 +2,8 @@
   <div class='row'>
     <div class='col-md-11'>
       <p><mark class="bg-light">配送先</mark></p>
-      
-      <%= form_with model:@address,local:true do |f| %>
+
+      <%= form_with model:@address,url:public_address_path, local:true do |f| %>
       <div class="form-group row">
         <label class="col-md-4 col-form-label col-form-label-sm">郵便番号(ハイフンなし)</label>
         <div class="col-md-4">
