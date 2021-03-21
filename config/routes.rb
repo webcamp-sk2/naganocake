@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   #devise
   devise_for :publics
-
-
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
