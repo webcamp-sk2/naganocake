@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     #顧客情報
-    resources :customers, only: [:index, :show, :edit, :destroy]
+    resources :customers, only: [:index, :show, :edit, :destroy, :update]
 
     #ジャンル
     resources :genres, only: [:index, :create, :edit, :update]
