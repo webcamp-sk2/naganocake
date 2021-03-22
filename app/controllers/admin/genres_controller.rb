@@ -10,7 +10,7 @@ class Admin::GenresController < ApplicationController
   end
 
   def create
-     @genres = Genre.new(genre_params)
+     @genre = Genre.new(genre_params)
      @genre.save
      #後日追加↓
      redirect_to
