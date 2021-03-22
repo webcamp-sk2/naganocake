@@ -19,11 +19,13 @@ before_action :authenticate_public!
 
 #顧客の退会確認画面
   def unsubscribe
+    @public = Public.find_by(id: current_public)
   end
 
 #顧客の退会処理(ステータスの更新)
   def withdraw
-    current_public.update(is_deleted: false)
+    @public = Public.find_by(id: current_public)
+    @public.update(is_deleted: true)
     reset_session
     redirect_to root_path
   end

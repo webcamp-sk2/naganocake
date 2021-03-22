@@ -1,36 +1,31 @@
 class Public::OrdersController < ApplicationController
 
-  def new
-   @cart_item = Cart_item.find(params[:cart_item_id])
-   @order = @item.order.new(order_params)
-  end
-
-  def comfirm
-    @cart_item = Cart_item.find(params[:cart_item_id])
-    @order = Order.new(order_params)
-  end
-
-  def complete
-  end
-
-  def create
-    @cart_item = Cart_item.find(params[:cart_item_id])
-    @order = Order.new(order_params)
-    @order.save
-    redirect to public_complete_path
-  end
-
   def index
-    @orders = Order.all
+    @orders = Order.where(public_id: current_public.id)
   end
 
   def show
-    @orders = Order.find(params[:id])
+    unless params[:id] == "confirm"
+      @order = Order.find(params[:id])
+      @order_products = @order.order_products
+      order_total(@order_products)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
+
+  def new
+    @cart_products = CartProduct.where(public_id: current_public.id)
+    @order = Order.new
+  end
+
 
   private
   def order_params
-    params.require(:order).permit(:postal_code, :addresses, :name, :cart_item_id)
+    params.require(:order).permit(:customer_id, :order_status, :total_price, :postcode, :address, :address_name, :payment_selection, :postage)
   end
 
+  def shipping_address_params
+    params.require(:shipping_address).permit(:postcode, :address, :address_name)
+  end
 end

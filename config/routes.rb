@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show]
     get "complete/orders" => "complete#orders", as: :complete
     post "comfirm/orders" => "comfirm#orders", as: :comfirm
+
+    #注文商品
+    resources :order_items
+
   end
 
   namespace :admin do

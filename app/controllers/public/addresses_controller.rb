@@ -4,10 +4,8 @@ before_action :authenticate_public!
 
 
    def index
-    @public = Public.find(current_public.id)
-    @addresses = @public.address
+    @addresses = Address.where(public_id: current_public.id)
     @address = Address.new
-    @addresses = Address.all
    end
 
    def create
