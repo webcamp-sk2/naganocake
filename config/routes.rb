@@ -31,9 +31,6 @@ Rails.application.routes.draw do
     get "complete/orders" => "complete#orders", as: :complete
     post "comfirm/orders" => "comfirm#orders", as: :comfirm
 
-    #注文商品
-    resources :order_items
-
   end
 
   namespace :admin do

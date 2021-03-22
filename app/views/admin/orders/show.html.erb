@@ -6,7 +6,7 @@
         <th>購入者</th>
         <td>
           <%= link_to admin_public_path(@order.public) do %>
-            <%= @order.customer.firstname + @order.customer.lastname %>
+            <%= @order.customer.firstname + @order.public.lastname %>
           <% end %>
         </td>
       </tr>
@@ -51,8 +51,8 @@
         <% @order_products.each do |order_product| %>
           <tr>
             <td><%= order_product.product.name %></td>
-            <td><%= include_tax(order_product.product.price).to_s(:delimited) %></td>
-            <td><%= order_product.quantity %></td>
+            <td><%= include_tax(order_item.product.price).to_s(:delimited) %></td>
+            <td><%= order_item.quantity %></td>
             <td><%= order_subtotal(order_product).to_s(:delimited) %></td>
             <td>
               <%= form_with model: order_product, url: admin_order_order_product_path(@order), method: :patch, local: true do |f| %>
