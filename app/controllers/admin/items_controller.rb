@@ -33,18 +33,18 @@ class Admin::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item = Item.destroy
-    redirect to admin_items_path
+    redirect_to admin_items_path
   end
 
   #商品新規登録
   def create
     @item = Item.new(item_params)
-    @item = Item.save
-    redirect to admin_items_path
+    @item.save
+    redirect_to admin_items_path
   end
 
   private
   def item_params
-    params.require(:item).permit(:genre_id, :name, :introduction, :price, :is_active, :image_id)
+    params.require(:item).permit(:genre_id, :name, :introduction, :price, :is_active, :image)
   end
 end
