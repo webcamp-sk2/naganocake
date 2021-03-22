@@ -13,26 +13,25 @@
         <div class = "block-center">
           <div class="name-field">
             <h4><%= f.label :商品名 ,class: "col-md-３" %>
-            <%= f.text_field :item_name, autofocus: true, autocomplete: "item_name" ,placeholder:"商品名",class: "col-xs-8"%></h4>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" ,placeholder:"商品名",class: "col-xs-8"%></h4>
           </div>
           <div class="description-field">
             <h4><%= f.label :商品説明 ,class: "col-md-3" %>
-            <%= f.text_area :explanation, autofocus: true, autocomplete: "explanation" , placeholder:"ここに説明文を記述します", class: "col-xs-"%></h4>
+            <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" , placeholder:"ここに説明文を記述します", class: "col-xs-"%></h4>
           </div>
           <div class="genre-field">
             <h4><%= f.label :ジャンル ,class: "col-md-3 fix" %>
             <%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
-            <!-- f.collection_select(プロパティ名, オブジェクトの配列, value属性の項目, 表示テキストの項目) -->
-            <!-- Genre.allでジャンルのテーブル内情報を持ってきてる -->
+
 
           </div>
           <div class="price-field">
             <h4><%= f.label :税抜価格 ,class: "col-md-3 block"  %>
-            <%= f.text_field :unit_price_without_tax, autofocus: true, autocomplete: "unit_price_without_tax" ,placeholder:"1000",class: "col-xs-8"%>円</h4>
+            <%= f.text_field :price, autofocus: true, autocomplete: "price" ,placeholder:"1000",class: "col-xs-8"%>円</h4>
           </div>
           <div class="status-field">
             <h4><%= f.label :販売ステータス  ,class: "col-md-3 fix" %>
-            <%= f.select :sale_status, ["販売中", "販売停止"] ,class: "btn btn-primary"%></h4>
+            <%= f.select :is_active, ["販売中", "販売停止"] ,class: "btn btn-primary"%></h4>
           </div>
           <div class="text-center"><%= f.submit "新規登録" ,class: "btn btn-primary"%></div>
           <% end %>
