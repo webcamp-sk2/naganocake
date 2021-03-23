@@ -1,37 +1,41 @@
 <div class = "container">
   <div class = "row" >
-    <h2>商品新規登録</h2><br>
+    <div style="margin-top : 20px">
+     <h2>商品新規登録<i class="fas fa-birthday-cake"></i></h2><br>
+    </div>
 
-    <div class = col-md-10>
+    <div class = col-md-9 ><br>
         <%= form_with model:@item, url:admin_items_path do |f| %>
-        <%#= attachment_image_tag @item, :image,  id: "itemimage" %>
-        <%#商品画像投稿%>
-        <h4>商品画像<%= f.attachment_field :image %></h4>
-
 
       <form>
-        <div class = "block-center">
+        <div style="margin-top : 100px">
+          <div class="image-field">
+            <h4><%= f.label :商品画像 ,class: "col-md-4" %>
+              <%= f.attachment_field :image, autofocus:true, class:"col-md-7"%></h4>
+          </div>
+
           <div class="name-field">
-            <h4><%= f.label :商品名 ,class: "col-md-３" %>
-            <%= f.text_field :name, autofocus: true, autocomplete: "name" ,placeholder:"商品名",class: "col-xs-8"%></h4>
+            <h4><%= f.label :商品名 ,class: "col-md-4" %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" ,placeholder:"商品名",class: "col-md-7"%></h4>
           </div>
           <div class="description-field">
-            <h4><%= f.label :商品説明 ,class: "col-md-3" %>
-            <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" , placeholder:"ここに説明文を記述します", class: "col-xs-"%></h4>
+            <h4><%= f.label :商品説明 ,class: "col-md-4" %>
+            <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" , placeholder:"ここに説明文を記述します", class: "col-md-7"%></h4>
           </div>
-          <div class="genre-field">
-            <h4><%= f.label :ジャンル ,class: "col-md-3 fix" %>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
 
-
-          </div>
           <div class="price-field">
-            <h4><%= f.label :税抜価格 ,class: "col-md-3 block"  %>
-            <%= f.text_field :price, autofocus: true, autocomplete: "price" ,placeholder:"1000",class: "col-xs-8"%>円</h4>
+            <h4><%= f.label :税抜価格 ,class: "col-md-4 "  %>
+            <%= f.text_field :price, autofocus: true, autocomplete: "price" ,placeholder:"1000",class: "col-md-7"%>円</h4>
           </div>
+
+          <div class="genre-field">
+            <h4><%= f.label :ジャンル ,class: "col-md-4 " %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name,class: "col-md-7"%></h4>
+          </div>
+
           <div class="status-field">
-            <h4><%= f.label :販売ステータス  ,class: "col-md-3 fix" %>
-            <%= f.select :is_active, ["販売中", "販売停止"] ,class: "btn btn-primary"%></h4>
+            <h4><%= f.label :販売ステータス  ,class: "col-md-4" %>
+                <%= f.select :is_active, ["販売中", "販売停止"] ,class: "btn btn-primary,col-md-7"%></h4>
           </div>
           <div class="text-center">
             <%= f.submit "新規登録" ,class: "btn btn-primary"%>
@@ -40,4 +44,5 @@
      </div>
     </div>
   </div>
+ </div>
 </div>
