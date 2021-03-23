@@ -25,8 +25,8 @@ class Admin::ItemsController < ApplicationController
   #商品更新
   def update
     @item = Item.find(params[:id])
-    @item = Items.update(item_params)
-    redirect to edit_public_item(@item)
+    @item.update(item_params)
+    redirect_to admin_items_path
   end
 
   #商品削除
