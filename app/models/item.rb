@@ -9,4 +9,9 @@ class Item < ApplicationRecord
   #販売ステータス
   enum is_active: {販売中:false,販売中止:true}
 
+  #バリデーション の設定
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :price, presence: true
+
 end

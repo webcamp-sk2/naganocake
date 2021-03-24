@@ -6,8 +6,10 @@
     </div>
 
   	<div class="col-xs-9">
-  	  <h2></i>商品一覧<span style="font-size:20px;">（全<%= @quantity %>件）</span></h2><br>
-  	    <div class="row">
+  	  <div style="margin-top : 20px">
+  	   <h2></i>商品一覧<i class="fas fa-clipboard-list"></i><span style="font-size:20px;">（全<%= @quantity %>件）</span></h2><br>
+  	  </div>
+  	<div class="row">
   	      <% @items.each do |item| %>
             <div class="box" style="float:left; margin-right:20px;">
             <%= link_to public_item_path(item.id) do %> <!-- 画像をクリックしたら商品詳細画面へ遷移 -->
