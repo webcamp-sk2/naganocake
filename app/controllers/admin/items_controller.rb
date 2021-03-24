@@ -5,6 +5,7 @@ class Admin::ItemsController < ApplicationController
   #商品一覧
   def index
     @items = Item.all
+    @items = Item.page(params[:id]).per(10)
   end
 
  #商品詳細
@@ -25,8 +26,8 @@ class Admin::ItemsController < ApplicationController
   #商品更新
   def update
     @item = Item.find(params[:id])
-    @item = Items.update(item_params)
-    redirect to edit_public_item(@item)
+    @item.update(item_params)
+    redirect_to admin_items_path
   end
 
   #商品削除
@@ -40,7 +41,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    redirect_to admin_items_path
+    redirect_to admin_item_path(@item.id)
   end
 
   private

@@ -18,9 +18,15 @@
           <tr>
             <% @items.each do |item| %>
             <td>
+<<<<<<< HEAD
               <%= attachment_image_tag item, :image, :fill,280,200, fallback: "no_image.jpg"%><br>
+=======
+             <div style="margin-left : 20px" >
+              <%= attachment_image_tag item, :image, :fill,200,140, fallback: "no_image.jpg" %><br>
+>>>>>>> f8fead0f74892891ae2c52da895f9bd6100c8f33
               <%= item.name %><br>
-              <%= item.price %>
+              ¥<%= (item.price*1.1).floor %>
+             </div>
             </td>
             <% end %>
           </tr>
