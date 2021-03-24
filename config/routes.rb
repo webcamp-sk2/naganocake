@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
     #カート内商品
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    delete "cart_items/destroy_all" => "cart_items#destroy_all", as: :destroy_all
+    get "cart_items/destroy_all" => "cart_items#destroy_all", as: :destroy_all
 
     #顧客
     resource :customer, only: [:show, :edit, :update]
@@ -28,8 +28,8 @@ Rails.application.routes.draw do
 
     #注文
     resources :orders, only: [:new, :create, :index, :show]
-    get "complete/orders" => "complete#orders", as: :complete
-    post "comfirm/orders" => "comfirm#orders", as: :comfirm
+    post "orders/comfirm" => "orders#comfirm", as: :comfirm
+    get "orders/complete" => "orders#complete", as: :complete
 
   end
 
