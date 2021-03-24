@@ -13,7 +13,7 @@
   	      <% @items.each do |item| %>
             <div class="box" style="float:left; margin-right:20px;">
             <%= link_to public_item_path(item.id) do %> <!-- 画像をクリックしたら商品詳細画面へ遷移 -->
-              <%= attachment_image_tag item, :image, :fill,280,200, fallback: "no_image.jpg"%><br>
+              <%= attachment_image_tag item, :image, :fill,260,200, fallback: "no_image.jpg"%><br>
             <% end %>
               <p><%= item.name %></p>
               <p>¥<%= item.price %></p>
