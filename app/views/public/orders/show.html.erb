@@ -20,9 +20,9 @@
     <table class="table table-bordered col-4 mx-4">
     <caption class="text-dark font-weight-bold" style="caption-side: top">請求情報</caption>
       <thead class="thead-light">
-        <tr><th>商品合計</th><td>  ¥０   </td></tr>
-        <tr><th>配送料</th><td>　¥800　　</td></tr>
-        <tr><th class="h5 font-weight-bold">ご請求額</th><td>  </td></tr>
+        <tr><th>商品合計</th><td>  <%= total_payment(@oreder_details) %>円   </td></tr>
+        <tr><th>配送料</th><td>800円</td></tr>
+        <tr><th class="h5 font-weight-bold">ご請求額</th><td><%= total_payment(@oreder_details) + 800 %>円</td></tr>
       </thead>
     </table>
   </div>
@@ -38,12 +38,12 @@
         </tr>
       </thead>
       <tbody>
-        <% @order.order_items.each do |order_item| %>
+        <% @oreder_details.each do |oreder_detail| %>
         <tr>
-          <td><%= cart_item.item.name %></td>
-          <td><%= cart_item.item_price.to_s(:delimited) %></td>
-          <td><%= cart_item.amount.to_s(:delimited) %></td>
-          <td></td>
+          <td><%= oreder_detail.item.name %></td>
+          <td><%= oreder_detail.item.price %></td>
+          <td><%= oreder_detail.amount %></td>
+          <td><%= sub_price(oreder_detail) %>円</td>
         </tr>
         <% end %>
       </tbody>

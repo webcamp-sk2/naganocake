@@ -16,8 +16,8 @@ class Admin::OrdersController < ApplicationController
     if @order.update(order_params)
 
       if order_params[:status] == "入金確認"
-        @order.order_details.each do |order_detail|
-          order_detail.update(making_status: 1) if order_detail.making_status == "着手不可"
+        @order.oreder_details.each do |order_detail|
+          oreder_detail.update(making_status: 1) if oreder_detail.making_status == "着手不可"
         end
       end
 
