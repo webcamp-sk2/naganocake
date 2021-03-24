@@ -25,6 +25,7 @@ before_action :authenticate_public!
      @cart_items = CartItem.where(public_id: current_public.id)
      @public = current_public
 
+
     case params[:address]
 
     #登録時の住所
@@ -51,13 +52,21 @@ before_action :authenticate_public!
       else
         redirect_back(fallback_location: root_path)
       end
+
+
     end
+
    end
 
     #注文の確定処理
     def create
+
+
     @order = Order.new(order_params)
     @order.public_id = current_public.id
+    @order.shipping_cost = 800
+    @order.status = 0
+    @order.total_payment = @total_payment.to_i + @order.shipping_cost.to_i
     @order.save
 
     # カート商品　保存
