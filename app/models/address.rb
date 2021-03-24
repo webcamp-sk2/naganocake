@@ -7,4 +7,9 @@ class Address < ApplicationRecord
   validates :postal_code, presence: true, length: { is: 7 }
   validates :address, presence: true
 
+ #登録済み住所
+  def params_registred_address
+    "〒" + self.postal_code + "  " + self.address + "  " +self.name
+  end
+
 end
