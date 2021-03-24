@@ -1,7 +1,12 @@
 class OrederDetail < ApplicationRecord
 
-  belongs_to :order
   belongs_to :item
-  #製作ステータス
-  enum making_status: [:着手不可,:製作待ち,:制作中,:製作完了]
+  belongs_to :order
+
+  validates :making_status, presence: true
+  validates :amount, presence: true
+  validates :price, presence: true
+
+  enum making_status: { "着手不可": 0, "製作待ち": 1, "製作中": 2, "製作完了": 3 }
+
 end

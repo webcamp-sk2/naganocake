@@ -5,6 +5,10 @@ class Public < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :addresses
+  has_many :cart_items
+  has_many :orders
+  has_many :addresses
+  has_many :items, through: :cart_items
 
   validates :last_name, presence: true
   validates :first_name, presence: true
@@ -15,7 +19,7 @@ class Public < ApplicationRecord
   validates :address, presence: true
 
   def name
-    first_name + last_name
+    last_name + first_name
   end
 
   def active_for_authentication?

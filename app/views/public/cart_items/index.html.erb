@@ -20,7 +20,7 @@
               <td class="p-1"><%= attachment_image_tag(cart_item.item, :image, fallback: "no-image-icon.jpg", class: "item_image mt-0 mb-0 mr-3", style: "width: 65px; height: 50px") %><%= cart_item.item.name %></td>
               <td><%= tax_price(cart_item.item.price) %></td>
               <td class="p-2">
-                <%= form_with model: cart_item, method: :PATCH, local: true do |f| %>
+                <%= form_with model:cart_item, url: public_cart_item_path(cart_item), local:true do |f| %>
                 <div class="row">
                   <div class="col">
                     <%= f.select(:amount, (1..20).to_a, {selected: cart_item.amount}, {class:"form-control p-2"}) %>
@@ -33,7 +33,7 @@
               </td>
               <% end %>
               <td><%= sub_price(cart_item).to_s(:delimited) %></td>
-              <td class="p-2"><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
+              <td class="p-2"><%= link_to "削除する", public_cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -47,7 +47,7 @@
     <div class="col-4 offset-2 fustify-content-end">
       <table class="table table-bordered">
         <th class="bg-light">合計金額</th>
-        <td><%= total %>円</td>
+        <td><%= total_payment(@cart_items).to_s(:delimited) %>円</td>
       </table>
     </div>
   </div>
