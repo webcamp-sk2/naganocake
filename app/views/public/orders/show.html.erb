@@ -1,0 +1,52 @@
+<div class="offset-1 my-2"><span class="page_title">注文履歴詳細</span></div>
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered col-7">
+      <caption class="text-dark font-weight-bold" style="caption-side: top">注文情報</caption>
+      <thead class="thead-light">
+        <tr><th class="align-middle">注文日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
+        <tr>
+          <th class="align-middle">配送先</th>
+            <td>
+              〒<%= @order.postal_code %><br>
+             住所： <%= @order.address %><br>
+              宛名：<%= @order.name %><br>
+            </td>
+        </tr>
+        <tr><th class="align-middle">支払方法</th><td><%= @order.payment_method %></td></tr>
+        <tr><th class="align-middle">ステータス</th><td><%= @order.status %></td></tr>
+      </thead>
+    </table>
+    <table class="table table-bordered col-4 mx-4">
+    <caption class="text-dark font-weight-bold" style="caption-side: top">請求情報</caption>
+      <thead class="thead-light">
+        <tr><th>商品合計</th><td>  ¥０   </td></tr>
+        <tr><th>配送料</th><td>　¥800　　</td></tr>
+        <tr><th class="h5 font-weight-bold">ご請求額</th><td>  </td></tr>
+      </thead>
+    </table>
+  </div>
+  <div class="row">
+    <table class="table table-bordered col-8">
+      <caption class="text-dark font-weight-bold" style="caption-side: top">請求情報</caption>
+      <thead class="thead-light">
+        <tr>
+          <th>商品</th>
+          <th>単価(税込)</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.order_items.each do |order_item| %>
+        <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item_price.to_s(:delimited) %></td>
+          <td><%= cart_item.amount.to_s(:delimited) %></td>
+          <td></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
