@@ -23,4 +23,19 @@ class ApplicationController < ActionController::Base
       new_public_session_path
     end
   end
+  
+  def after_sign_in_path_for(resource)
+    case resource
+    when :admin
+      admin_customers_path
+    end
+  end
+  
+  def after_sign_up_path_for(resource)
+    case resource
+    when :public
+      public_customer_path(current_custoumer)
+    end
+  end  
 end
+
