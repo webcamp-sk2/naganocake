@@ -26,6 +26,7 @@ before_action :authenticate_public!
      @public = current_public
 
 
+
     case params[:address]
 
     #登録時の住所
@@ -66,7 +67,8 @@ before_action :authenticate_public!
     @order.public_id = current_public.id
     @order.shipping_cost = 800
     @order.status = 0
-    @order.total_payment = @total_payment.to_i + @order.shipping_cost.to_i
+    pay_amount = Order.total_amount_calculator(current_public.cart_items)
+    @order.total_payment = pay_amount + @order.shipping_cost.to_i
     @order.save
 
     # カート商品　保存
@@ -82,14 +84,14 @@ before_action :authenticate_public!
       render :complete
 
     #新しい住所登録を行なった場合配送先テーブルに保存
-    if Address.find_by(address: @address).nil?
-      @address = Address.new
-      @address.name = @order.name
-      @address.address = @order.address
-      @address.postal_code = @order.postal_code
-      @address.public_id = current_public.id
-      @address.save
-    end
+    #if Address.find_by(address: @address).nil?
+      #@address = Address.new
+      #@address.name = @order.name
+      #@address.address = @order.address
+      #@address.postal_code = @order.postal_code
+     # @address.public_id = current_public.id
+     # @address.save
+    #end
     end
 
 

@@ -12,18 +12,25 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
+
     @order = Order.find(params[:id])
+    status = Order.statuses[order_params[:status]]
+
     if @order.update(order_params)
 
-      if order_params[:status] == "入金確認"
-        @order.oreder_details.each do |order_detail|
-          oreder_detail.update(making_status: 1) if oreder_detail.making_status == "着手不可"
+      if status >= Order.statuses["入金確認"]
+        @order.oreder_details.each do |oreder_detail|
+          oreder_detail.update(making_status: 1)
+        end
+      else
+        @order.oreder_details.each do |oreder_detail|
+          oreder_detail.update(making_status: 0)
         end
       end
 
-      flash[:notice] = "注文ステータスを変更しました"
       redirect_to admin_order_path(@order)
     else
+      @oreder_details = @order.oreder_details
       render "show"
     end
   end
