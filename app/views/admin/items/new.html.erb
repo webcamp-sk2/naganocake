@@ -1,3 +1,13 @@
+<% if @item.errors.any? %>
+  <div id="error_explanation" class="mt-2">
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class = "container">
   <div class = "row" >
     <div style="margin-top : 20px">
@@ -5,7 +15,7 @@
     </div>
 
     <div class = col-md-9 ><br>
-        <%= form_with model:@item, url:admin_items_path do |f| %>
+        <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
 
       <form>
         <div style="margin-top : 100px">

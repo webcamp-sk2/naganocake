@@ -26,8 +26,11 @@ class Admin::ItemsController < ApplicationController
   #商品更新
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to admin_items_path
+    if @item.update(item_params)
+      redirect_to admin_items_path
+    else
+      render 'edit'
+    end
   end
 
   #商品削除
@@ -40,8 +43,11 @@ class Admin::ItemsController < ApplicationController
   #商品新規登録
   def create
     @item = Item.new(item_params)
-    @item.save
+    if @item.save
     redirect_to admin_item_path(@item.id)
+    else
+      render 'new'
+    end
   end
 
   private

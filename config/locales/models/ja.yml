@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    attributes:
+      item:
+        name: 商品名
+        introduction: 商品説明
+        price: 税抜価格
+        
+ja:
+  activerecord:
+    attributes:
+      genre:
+        name: ジャンル名
+        
+ja:
+  activerecord:
+    attributes:
+      public:
+        last_name: お名前(姓)
+        first_name: お名前(名)
+        last_name_kana: フリガナ(姓)
+        first_name_kana: フリガナ(名)
+        postal_code: 郵便番号
+        address: 住所
+        email: メールアドレス
+        telephone_number: 電話番号

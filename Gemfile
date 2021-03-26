@@ -88,3 +88,5 @@ end
 #住所自動表示
 gem 'jp_prefecture'
 
+# エラーメッセージの日本語化
+gem 'rails-i18n'
