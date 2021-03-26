@@ -1,3 +1,13 @@
+<% if @public.errors.any? %>
+  <div id="error_explanation" class="mt-2">
+    <ul>
+      <% @public.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="mx-auto w-50">
   <div class="row m-3">
     <p class="col-md-3"><%= link_to "戻る", admin_customer_path(@public), class: "fas fa-arrow-circle-left btn btn-lg" %></p>
