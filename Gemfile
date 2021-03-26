@@ -88,3 +88,6 @@ end
 #住所自動表示
 gem 'jp_prefecture'
 
+#デバイス日本語表記
+ gem 'devise-i18n'
+ gem 'devise-i18n-views'
