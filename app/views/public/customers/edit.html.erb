@@ -1,5 +1,5 @@
 <div class="Mwnu" style="margin-top:60px">会員情報変更画面</div>
-<%= render "layouts/error_massages", model: current_public %>
+<%= render "layouts/error_messages", model: current_public %>
 <%= form_with model: current_public, url: public_customer_path, class: "container", local: true do |f| %>
  <div class="row my-3">
   <%= f.label "名前", class: "col-2" %>
