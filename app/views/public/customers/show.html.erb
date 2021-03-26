@@ -3,13 +3,15 @@
     <div class='col-md-5'>
 
 
-      <p><mark class="bg-light font-weight-bold">マイページ</mark></p>
-      <div class="font-weight-bold">
-        登録情報
+      <p style="margin-top:30px;"><mark class="bg-light font-weight-bold">マイページ</mark></p>
+      <div class="font-weight-bold" style="margin-bottom:30px;">
+        <table>
+          <tr>
+            <td>登録情報</td>
+            <td> <%= link_to '編集する', edit_public_customer_path(@customer), class: "btn btn-sm btn-success",style: "margin-left:30px;" %></td>
+          </tr>
+        </table>
       </div>
-      <%= link_to '編集する', edit_public_customer_path(@customer), class: "btn btn-sm btn-success" %>
-
-
         <table class='table table-bordered'>
           <tr>
             <td class="bg-light">氏名</td>
@@ -38,14 +40,19 @@
           </table>
 
         <div class="font-weight-bold">
-          配送先
+          <table>
+            <tbody>
+              <tr>
+                <td>配送先</td>
+                <td><%= link_to '一覧を見る', public_addresses_path(current_public), class: "btn btn-sm btn-primary", style: "margin-left:30px;" %></td>
+              </tr>
+              <tr>
+                <td>注文履歴</td>
+                <td><%= link_to '一覧を見る', public_orders_path(current_public), class: "btn btn-sm btn-primary",style: "margin-left:30px;" %></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <%= link_to '一覧を見る', public_addresses_path(current_public), class: "btn btn-sm btn-primary" %>
-        <div class="font-weight-bold">
-          注文履歴
-        </div>
-        <%= link_to '一覧を見る', public_orders_path(current_public), class: "btn btn-sm btn-primary" %>
-
     </div>
   </div>
 </div>

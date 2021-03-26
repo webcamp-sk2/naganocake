@@ -18,12 +18,13 @@
           <tr>
             <% @items.each do |item| %>
             <td>
-              <%= link_to public_item_path(item.id) do %> <!-- 画像をクリックしたら商品詳細画面へ遷移 -->
-                <%= attachment_image_tag item, :image, :size => "200x150", fallback: "no_image.jpg"%><br>
-              <% end %>
-              <%= item.name %><br>
-              ¥<%= (item.price*1.1).floor %>
-             </div>
+              <div style="margin-right:30px;">
+                <%= link_to public_item_path(item.id) do %> <!-- 画像をクリックしたら商品詳細画面へ遷移 -->
+                  <%= attachment_image_tag item, :image, :size => "200x150", fallback: "no_image.jpg"%><br>
+                <% end %>
+                <%= item.name %><br>
+                ¥<%= (item.price*1.1).floor %>
+              </div>
             </td>
             <% end %>
           </tr>
