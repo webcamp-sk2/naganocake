@@ -61,8 +61,6 @@ before_action :authenticate_public!
 
     #注文の確定処理
     def create
-
-
     @order = Order.new(order_params)
     @order.public_id = current_public.id
     @order.shipping_cost = 800
