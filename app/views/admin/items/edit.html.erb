@@ -1,0 +1,97 @@
+<% if @item.errors.any? %>
+  <div id="error_explanation" class="mt-2">
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="container">
+    <div class="row" style="margin-top:60px;">
+        <div class="offset-md-2 col-md-6">
+            <h4>商品編集</h4>
+        </div>
+    </div>
+    <div class="row" style="margin-top:40px;">
+        <div class="offset-md-3 col-md-2">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label style="margin-bottom:20px;">商品画像</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="margin-bottom:20px;">商品名</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="margin-bottom:120px;">商品説明</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="margin-bottom:15px;">ジャンル</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="margin-bottom:25px;">税抜価格</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>販売ステータス</label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <%= form_with model: @item, url: admin_item_path(@item), local: true do |f| %>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <%= f.attachment_field :image, placeholder: "商品画像", :size => "10x20", style: "margin-bottom:10px;" %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= f.text_field :name, placeholder: "商品名", :size => "40" ,class: "form-control", style: "margin-bottom:10px; border:0.1px solid;" %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= f.text_area :introduction, :size => "40x5",class: "form-control",style: "margin-bottom:10px; border:0.1px solid;" %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= f.number_field :price,style: "width:310px; margin:10px 0;"  %>円
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= f.radio_button :is_active, :販売中 %>
+                            <%= f.label :販売中 %>
+                            <%= f.radio_button :is_active, :販売中止 %>
+                            <%= f.label :販売中止 %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <%= f.submit "変更を保存", class: "btn btn-success" %>
+            <% end %>
+        </div>
+    </div>
+</div>

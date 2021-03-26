@@ -1,0 +1,40 @@
+<div class="container center-block "style="margin-top: 100px;">
+  <div class="row">
+    <div class="offset-md-4 col-md-7">
+      <p class="text-left">
+        ようこそ、ながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない⽅も商品の閲覧はできますが、<br>
+        購⼊には会員登録が必要になります。<br>
+      </p>
+    </div>
+  </div>
+  <div class="row" style="margin-top:50px;">
+    <div class="offset-md-2 col-md-9">
+      <!--新着商品一覧-->
+      <h2>新着商品</h2>
+      <table>
+        <tbody>
+          <tr>
+            <% @items.each do |item| %>
+            <td>
+              <div style="margin-right:30px;">
+                <%= link_to public_item_path(item.id) do %> <!-- 画像をクリックしたら商品詳細画面へ遷移 -->
+                  <%= attachment_image_tag item, :image, :size => "200x150", fallback: "no_image.jpg"%><br>
+                <% end %>
+                <%= item.name %><br>
+                ¥<%= (item.price*1.1).floor %>
+              </div>
+            </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row" style="margin-top:150px;">
+    <div class="offset-md-9 col-md-2">
+      <p class="text-left"><%= link_to "全ての商品を見る",public_items_path %></p>
+    </div>
+  </div>
+</div>

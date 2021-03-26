@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row"><!-- 商品一覧 -->
+  	<div class="offset-md-1 col-md-9">
+  	  <h2 style="margin-top : 20px"></i>商品一覧<i class="fas fa-clipboard-list"></i><span style="font-size:20px;">（全<%= @quantity %>件）</span></h2><br>
+  	</div>
+  </div>
+  <div class="row">
+  	<% @items.each do |item| %>
+    <div class="box" style="float:left; margin-right:20px;">
+      <%= link_to public_item_path(item.id) do %> <!-- 画像をクリックしたら商品詳細画面へ遷移 -->
+        <%= attachment_image_tag item, :image, :size => "200x150", fallback: "no_image.jpg"%><br>
+      <% end %>
+      <p><%= item.name %></p>
+      <p>¥<%= item.price %></p>
+    </div>
+    <% end %>
+  	<div class="col-xs-6 col-xs-offset-4 ">
+      <%= paginate @items %>
+  	</div>
+  </div>
+</div>

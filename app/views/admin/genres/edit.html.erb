@@ -1,0 +1,26 @@
+<% if @genre.errors.any? %>
+  <div id="error_explanation" class="mt-2">
+    <ul>
+      <% @genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="container">
+    <div class="row"style="margin-top:60px;">
+        <div class="offset-md-1 col-md-4">
+            <h3>ジャンル編集</h3>
+        </div>
+    </div>
+    <div class="row"style="margin-top:60px;">
+        <div class="col-md-8">
+            <%= form_with model: @genre, url: admin_genre_path(@genre), local: true do |f| %>
+            <label>ジャンル名</label>
+            <%= f.text_field :name, style: "margin-left:70px;" %>
+            <%= f.submit "変更を保存", class: "btn btn-success", style: "margin-left:70px;" %>
+            <% end %>
+        </div>
+    </div>
+</div>
