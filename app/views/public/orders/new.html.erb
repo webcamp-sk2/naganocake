@@ -30,7 +30,7 @@
     <%= radio_button_tag "address", "add_address" %>
     <%= f.label "新しいお届け先" %>
     <div class="col">
-      <%= fields_for :address do |a| %>
+      <%= fields_for :aaddress do |a| %>
       <div class="form-group row">
         <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-3" %>
         <%= f.text_field :postal_code, placeholder: "0000000", class: "form-control col-4", id: "public_postal_code" %>

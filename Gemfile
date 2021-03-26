@@ -90,3 +90,7 @@ gem 'jp_prefecture'
 
 # エラーメッセージの日本語化
 gem 'rails-i18n'
+
+#デバイス日本語表記
+ gem 'devise-i18n'
+ gem 'devise-i18n-views'

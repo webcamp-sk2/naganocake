@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_03_22_103023) do
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "customer_id"
+    t.integer "public_id"
     t.string "name"
     t.string "postal_code"
     t.string "address"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_103023) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "customer_id"
+    t.integer "public_id"
     t.integer "item_id"
     t.integer "amount"
     t.datetime "created_at", null: false
